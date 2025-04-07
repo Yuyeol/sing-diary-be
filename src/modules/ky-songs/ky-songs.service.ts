@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { SupabaseService } from '../../common/utils/supabase.util';
-import { KySong } from './entities/ky-song.entity';
+import { SupabaseService } from '@common/utils/supabase.util';
+import { KySong } from '@modules/ky-songs/entities/ky-song.entity';
 
 @Injectable()
 export class KySongsService {

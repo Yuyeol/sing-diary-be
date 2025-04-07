@@ -1,6 +1,6 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
-import { KySongsService } from './ky-songs.service';
-import { KySong } from './entities/ky-song.entity';
+import { KySongsService } from '@modules/ky-songs/ky-songs.service';
+import { KySong } from '@modules/ky-songs/entities/ky-song.entity';
 
 @Controller('ky-songs')
 export class KySongsController {

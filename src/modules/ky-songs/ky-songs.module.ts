@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { KySongsController } from './ky-songs.controller';
-import { KySongsService } from './ky-songs.service';
-import { SupabaseService } from '../../common/utils/supabase.util';
+import { KySongsController } from '@modules/ky-songs/ky-songs.controller';
+import { KySongsService } from '@modules/ky-songs/ky-songs.service';
+import { SupabaseService } from '@common/utils/supabase.util';
 
 @Module({
   // export한 모듈이나 서비스를 사용할때 넣어준다.
