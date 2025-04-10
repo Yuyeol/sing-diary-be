@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { SupabaseService } from '@common/utils/supabase.util';
-import { KySong } from '@modules/ky-songs/entities/ky-song.entity';
+import { KySong } from '@modules/all-songs/ky-songs/entities/ky-song.entity';
 import { LoggerService } from '@common/logger/logger.service';
 
 @Injectable()
@@ -75,7 +75,7 @@ export class KySongsService {
       const { data, error } = await this.supabaseService.client
         .from(this.tableName)
         .select('*')
-        .or(`title.ilike.%${query}%,artist.ilike.%${query}%`);
+        .or(`title.ilike.%${query}%,singer.ilike.%${query}%`);
 
       if (error) {
         this.logger.error(`검색 중 오류 발생: ${error.message}`, error.stack);

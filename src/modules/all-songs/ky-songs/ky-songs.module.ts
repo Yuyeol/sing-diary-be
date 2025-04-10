@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { KySongsController } from '@modules/ky-songs/ky-songs.controller';
-import { KySongsService } from '@modules/ky-songs/ky-songs.service';
+import { KySongsController } from '@modules/all-songs/ky-songs/ky-songs.controller';
+import { KySongsService } from '@modules/all-songs/ky-songs/ky-songs.service';
 import { SupabaseService } from '@common/utils/supabase.util';
 import { LoggerService } from '@common/logger/logger.service';
 

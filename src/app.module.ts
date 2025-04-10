@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { KySongsModule } from '@modules/ky-songs/ky-songs.module';
+import { AllSongsModule } from '@modules/all-songs/all-songs.module';
+import { PopularSongsModule } from '@modules/popular-songs/popular-songs.module';
 import { LoggerModule } from '@common/logger/logger.module';
 
 @Module({
@@ -9,7 +10,8 @@ import { LoggerModule } from '@common/logger/logger.module';
       isGlobal: true,
     }),
     LoggerModule,
-    KySongsModule,
+    AllSongsModule,
+    PopularSongsModule,
   ],
   controllers: [],
   providers: [],
