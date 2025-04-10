@@ -1,4 +1,4 @@
-export class TjPopularSong {
+export class TjSongDto {
   id: number;
   rank: number;
   number: string;

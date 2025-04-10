@@ -1,8 +1,8 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
-import { TjSongsService } from '@modules/all-songs/tj-songs/tj-songs.service';
-import { TjSong } from '@modules/all-songs/tj-songs/entities/tj-song.entity';
+import { TjSongsService } from '@app/modules/all-songs/tj/tj-songs.service';
+import { TjSong } from '@app/modules/all-songs/tj/entities/tj-song.entity';
 
-@Controller('all-songs/tj-songs')
+@Controller('all-songs/tj')
 export class TjSongsController {
   constructor(private readonly tjSongsService: TjSongsService) {}
 

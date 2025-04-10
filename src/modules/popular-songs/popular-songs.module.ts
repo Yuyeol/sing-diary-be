@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { KyPopularSongsModule } from '@modules/popular-songs/ky-songs/ky-popular-songs.module';
-import { TjPopularSongsModule } from '@modules/popular-songs/tj-songs/tj-popular-songs.module';
+import { KySongsModule } from '@app/modules/popular-songs/ky/ky-songs.module';
+import { TjSongsModule } from '@app/modules/popular-songs/tj/tj-songs.module';
 
 @Module({
-  imports: [KyPopularSongsModule, TjPopularSongsModule],
-  exports: [KyPopularSongsModule, TjPopularSongsModule],
+  imports: [KySongsModule, TjSongsModule],
+  exports: [KySongsModule, TjSongsModule],
 })
 export class PopularSongsModule {}

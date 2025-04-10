@@ -1,17 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { SupabaseService } from '@common/utils/supabase.util';
-import { TjSong } from '@modules/all-songs/tj-songs/entities/tj-song.entity';
+import { KySong } from '@modules/all-songs/ky/entities/ky-song.entity';
 import { LoggerService } from '@common/logger/logger.service';
 
 @Injectable()
-export class TjSongsService {
-  private readonly tableName = 'tj_songs';
+export class KySongsService {
+  private readonly tableName = 'ky_songs';
 
   constructor(
     private readonly supabaseService: SupabaseService,
     private readonly logger: LoggerService,
   ) {
-    this.logger.setContext('TjSongsService');
+    this.logger.setContext('KySongsService');
   }
 
   async search({
@@ -21,14 +21,14 @@ export class TjSongsService {
     singer?: string;
     title?: string;
   }): Promise<{
-    title?: TjSong[];
-    singer?: TjSong[];
+    title?: KySong[];
+    singer?: KySong[];
     success: boolean;
   }> {
     this.logger.log(`검색 요청 시작: title="${title}", singer="${singer}"`);
 
     try {
-      const result: { title?: TjSong[]; singer?: TjSong[] } = {
+      const result: { title?: KySong[]; singer?: KySong[] } = {
         title: [],
         singer: [],
       };
@@ -91,7 +91,7 @@ export class TjSongsService {
   }
 
   async findOne(id: number): Promise<{
-    song: TjSong;
+    song: KySong;
     success: boolean;
   }> {
     this.logger.log(`ID가 ${id}인 노래 조회 요청 시작`);

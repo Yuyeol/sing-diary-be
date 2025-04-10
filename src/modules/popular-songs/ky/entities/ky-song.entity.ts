@@ -1,4 +1,4 @@
-export class KyPopularSong {
+export class KySong {
   id: number;
   rank: number;
   number: string;

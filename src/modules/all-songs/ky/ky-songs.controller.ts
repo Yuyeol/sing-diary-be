@@ -1,8 +1,8 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
-import { KySongsService } from '@modules/all-songs/ky-songs/ky-songs.service';
-import { KySong } from '@modules/all-songs/ky-songs/entities/ky-song.entity';
+import { KySongsService } from '@modules/all-songs/ky/ky-songs.service';
+import { KySong } from '@modules/all-songs/ky/entities/ky-song.entity';
 
-@Controller('all-songs/ky-songs')
+@Controller('all-songs/ky')
 export class KySongsController {
   constructor(private readonly kySongsService: KySongsService) {}
 
