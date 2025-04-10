@@ -1,5 +1,6 @@
-export class KySongDto {
+export class KyPopularSong {
   id: number;
+  rank: number;
   number: string;
   title: string;
   singer: string;

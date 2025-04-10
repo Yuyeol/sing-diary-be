@@ -7,4 +7,5 @@ export class KySong {
   lyricist: string;
   release_date: string;
   lyrics: string;
+  created_at: string;
 }
