@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
-import { TjSongsService } from '@app/modules/popular-songs/tj/tj-songs.service';
-import { TjSong } from '@app/modules/popular-songs/tj/entities/tj-song.entity';
+import { TjSongsService } from '@modules/popular-songs/tj/tj-songs.service';
+import { TjSongDto } from '@modules/all-songs/tj/dto/tj-song.dto';
 
 @Controller('popular-songs/tj')
 export class TjSongsController {
@@ -8,7 +8,7 @@ export class TjSongsController {
 
   @Get()
   async findAll(): Promise<{
-    songs: TjSong[];
+    songs: TjSongDto[];
     success: boolean;
   }> {
     return this.tjSongsService.findAll();

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { SupabaseService } from '@common/utils/supabase.util';
-import { KySong } from '@modules/all-songs/ky/entities/ky-song.entity';
 import { LoggerService } from '@common/logger/logger.service';
+import { KySongDto } from '@modules/all-songs/ky/dto/ky-song.dto';
 
 @Injectable()
 export class KySongsService {
@@ -21,14 +21,14 @@ export class KySongsService {
     singer?: string;
     title?: string;
   }): Promise<{
-    title?: KySong[];
-    singer?: KySong[];
+    title?: KySongDto[];
+    singer?: KySongDto[];
     success: boolean;
   }> {
     this.logger.log(`검색 요청 시작: title="${title}", singer="${singer}"`);
 
     try {
-      const result: { title?: KySong[]; singer?: KySong[] } = {
+      const result: { title?: KySongDto[]; singer?: KySongDto[] } = {
         title: [],
         singer: [],
       };
@@ -91,7 +91,7 @@ export class KySongsService {
   }
 
   async findOne(id: number): Promise<{
-    song: KySong;
+    song: KySongDto;
     success: boolean;
   }> {
     this.logger.log(`ID가 ${id}인 노래 조회 요청 시작`);

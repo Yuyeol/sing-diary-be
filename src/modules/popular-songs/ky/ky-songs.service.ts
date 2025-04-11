@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { SupabaseService } from '@common/utils/supabase.util';
-import { KySong } from '@app/modules/popular-songs/ky/entities/ky-song.entity';
 import { LoggerService } from '@common/logger/logger.service';
+import { KySongDto } from '@modules/all-songs/ky/dto/ky-song.dto';
 
 @Injectable()
 export class KySongsService {
@@ -15,7 +15,7 @@ export class KySongsService {
   }
 
   async findAll(): Promise<{
-    songs: KySong[];
+    songs: KySongDto[];
     success: boolean;
   }> {
     this.logger.log('모든 KY 인기차트 노래 조회 요청 시작');

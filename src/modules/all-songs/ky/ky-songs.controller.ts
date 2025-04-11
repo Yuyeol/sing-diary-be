@@ -1,6 +1,6 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { KySongsService } from '@modules/all-songs/ky/ky-songs.service';
-import { KySong } from '@modules/all-songs/ky/entities/ky-song.entity';
+import { KySongDto } from '@modules/all-songs/ky/dto/ky-song.dto';
 
 @Controller('all-songs/ky')
 export class KySongsController {
@@ -11,8 +11,8 @@ export class KySongsController {
     @Query('title') title?: string,
     @Query('singer') singer?: string,
   ): Promise<{
-    title?: KySong[];
-    singer?: KySong[];
+    title?: KySongDto[];
+    singer?: KySongDto[];
     success: boolean;
   }> {
     return this.kySongsService.search({ title, singer });
@@ -20,7 +20,7 @@ export class KySongsController {
 
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<{
-    song: KySong;
+    song: KySongDto;
     success: boolean;
   }> {
     return this.kySongsService.findOne(+id);

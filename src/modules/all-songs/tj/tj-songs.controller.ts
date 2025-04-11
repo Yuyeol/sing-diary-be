@@ -1,6 +1,6 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
-import { TjSongsService } from '@app/modules/all-songs/tj/tj-songs.service';
-import { TjSong } from '@app/modules/all-songs/tj/entities/tj-song.entity';
+import { TjSongsService } from '@modules/all-songs/tj/tj-songs.service';
+import { TjSongDto } from '@modules/all-songs/tj/dto/tj-song.dto';
 
 @Controller('all-songs/tj')
 export class TjSongsController {
@@ -11,8 +11,8 @@ export class TjSongsController {
     @Query('title') title?: string,
     @Query('singer') singer?: string,
   ): Promise<{
-    title?: TjSong[];
-    singer?: TjSong[];
+    title?: TjSongDto[];
+    singer?: TjSongDto[];
     success: boolean;
   }> {
     return this.tjSongsService.search({ title, singer });
@@ -20,7 +20,7 @@ export class TjSongsController {
 
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<{
-    song: TjSong;
+    song: TjSongDto;
     success: boolean;
   }> {
     return this.tjSongsService.findOne(+id);

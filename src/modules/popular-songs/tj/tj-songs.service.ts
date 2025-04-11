@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { SupabaseService } from '@common/utils/supabase.util';
-import { TjSong } from '@app/modules/popular-songs/tj/entities/tj-song.entity';
 import { LoggerService } from '@common/logger/logger.service';
+import { TjSongDto } from '@modules/all-songs/tj/dto/tj-song.dto';
 
 @Injectable()
 export class TjSongsService {
@@ -15,7 +15,7 @@ export class TjSongsService {
   }
 
   async findAll(): Promise<{
-    songs: TjSong[];
+    songs: TjSongDto[];
     success: boolean;
   }> {
     this.logger.log('모든 TJ 인기차트 노래 조회 요청 시작');
