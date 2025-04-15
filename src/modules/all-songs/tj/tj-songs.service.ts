@@ -37,7 +37,9 @@ export class TjSongsService {
         const { data, error } = await this.supabaseService.client
           .from(this.tableName)
           .select('*')
-          .ilike('title', `%${title}%`);
+          .or(
+            `title.ilike.%${title}%,title_pron.like.%${title}%,title_chosung.like.%${title}%`,
+          );
 
         if (error) {
           this.logger.error(
@@ -55,7 +57,9 @@ export class TjSongsService {
         const { data, error } = await this.supabaseService.client
           .from(this.tableName)
           .select('*')
-          .ilike('singer', `%${singer}%`);
+          .or(
+            `singer.ilike.%${singer}%,singer_pron.like.%${singer}%,singer_chosung.like.%${singer}%`,
+          );
 
         if (error) {
           this.logger.error(
