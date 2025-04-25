@@ -5,7 +5,7 @@ import { KySongDto } from '@modules/all-songs/ky/dto/ky-song.dto';
 
 @Injectable()
 export class KySongsService {
-  private readonly tableName = 'ky_songs';
+  private readonly tableName = 'ky_popular_songs';
 
   constructor(
     private readonly supabaseService: SupabaseService,
