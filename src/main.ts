@@ -1,8 +1,18 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { AppModule } from '@app/app.module';
+import { envConfig } from '@config/env.config';
+import { HttpInterceptor } from '@common/logger/interceptors/http.interceptor';
+import { LoggerService } from '@common/logger/logger.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(process.env.PORT ?? 3000);
+
+  const loggerService = await app.resolve(LoggerService);
+  app.useGlobalInterceptors(new HttpInterceptor(loggerService));
+
+  // 일단 모든 cors 허용
+  app.enableCors();
+
+  await app.listen(envConfig.port, '0.0.0.0');
 }
 bootstrap();
