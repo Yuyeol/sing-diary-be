@@ -10,9 +10,6 @@ async function bootstrap() {
   const loggerService = await app.resolve(LoggerService);
   app.useGlobalInterceptors(new HttpInterceptor(loggerService));
 
-  // 일단 모든 cors 허용
-  app.enableCors();
-
   await app.listen(envConfig.port, '0.0.0.0');
 }
 bootstrap();
